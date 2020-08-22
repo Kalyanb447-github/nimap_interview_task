@@ -3,11 +3,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nimap_interview_task/api/api.dart';
 import 'package:nimap_interview_task/controllers/home_controller.dart';
 import 'package:nimap_interview_task/models/record_model.dart';
 import 'package:nimap_interview_task/pages/widgets/no_internet_screen/shimmer_list.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'home_card_widget.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -20,6 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     getJsonDataFromStatus();
     // homeController.getAllImageDataLinkAnddownload(context: context);
+
+    // Api().downloadAllImage();
   }
 
   getJsonDataFromStatus() async {
@@ -27,9 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
     String data = await DefaultAssetBundle.of(context)
         .loadString("json_data/json_data.json");
     final jsonResult = json.decode(data);
-    // print(jsonResult);
-    // print(jsonResult['data']['Records']);
-
     return jsonResult["data"]["Records"];
   }
 

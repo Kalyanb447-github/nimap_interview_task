@@ -37,6 +37,6 @@ class HomeController extends GetxController {
       listOfImage.add(element.mainImageURL);
     });
 
-    Api().downloadCompalsaryFolderImage(imageUrlList: listOfImage);
+    // Api().downloadAllImage(imageUrlList: listOfImage);
   }
 }

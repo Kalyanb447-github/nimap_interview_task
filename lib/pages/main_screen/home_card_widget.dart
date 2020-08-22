@@ -85,7 +85,7 @@ class HomeCardWidget extends StatelessWidget {
                                     ),
                                   ),
                                   placeholder: (context, url) =>
-                                      CircularProgressIndicator(),
+                                      Image.asset('assets/no_image.png'),
                                   errorWidget: (context, url, error) =>
                                       Icon(Icons.error),
                                 );
@@ -113,7 +113,7 @@ class HomeCardWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '₹ 500',
+                                  "₹ ${selectedModel.collectedValue ?? ''}",
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
@@ -131,7 +131,7 @@ class HomeCardWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
-                                  '₹ 5000',
+                                  "${selectedModel.totalValue ?? ''}",
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
@@ -149,7 +149,7 @@ class HomeCardWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '36',
+                                  "${selectedModel.endDate ?? ''}",
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 SizedBox(
@@ -208,7 +208,7 @@ class HomeCardWidget extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            'Smile Crowdfounding',
+                            selectedModel.title ?? '',
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
@@ -229,7 +229,7 @@ class HomeCardWidget extends StatelessWidget {
 
                     ListTile(
                       title: Text(
-                        'This foundation will bring smile on their face',
+                        selectedModel.shortDescription ?? '',
                         style: TextStyle(
                             color: Colors.grey, fontWeight: FontWeight.bold),
                       ),
@@ -274,263 +274,3 @@ class HomeCardWidget extends StatelessWidget {
     );
   }
 }
-
-class DemoPage extends StatefulWidget {
-  @override
-  _DemoPageState createState() => _DemoPageState();
-}
-
-class _DemoPageState extends State<DemoPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return Container(
-              child: Stack(
-                // fit: StackFit.expand,
-                children: [
-                  Column(
-                    children: [
-                      Image(
-                        image: NetworkImage(
-                            'http://iphonedeveloperguide.com/oneinr/project1.jpg'),
-                        fit: BoxFit.cover,
-                        // color: Colors.black87,
-                        // colorBlendMode: BlendMode.darken,
-                      ),
-                      Positioned(
-                        // left: 20,
-                        top: 20,
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0)),
-                          elevation: 8.0,
-                          child: Container(
-                            // color: Colors.red,
-                            height: 100,
-                            width: 300,
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Text(
-                                      'Smile Crowdfounding',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        // alignment: Alignment.bottomCenter,
-                        height: 100,
-                        color: Color(0xFF5dbcd2),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    '₹ 500',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  Text(
-                                    'founded',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    '₹ 5000',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  Text(
-                                    'Goals',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    '36',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  Text(
-                                    'Ends In',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Center(
-                                child: RaisedButton(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(20.0))),
-                                  onPressed: () {},
-                                  child: Text(
-                                    'founded',
-                                    style: TextStyle(
-                                      color: Color(0xFF376377),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          }),
-    );
-  }
-}
-
-//  return InkWell(
-//     onTap: onPressed,
-//     child: Card(
-//       margin: EdgeInsets.fromLTRB(20, 0, 20, 10),
-//       elevation: 5.0,
-//       child: Container(
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.circular(20),
-//         ),
-//         child: Column(
-//           children: [
-//             Container(
-//               alignment: Alignment.centerLeft,
-//               padding: EdgeInsets.all(20),
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   CarouselSlider(
-//                     options: CarouselOptions(height: 150.0),
-//                     items: [1, 2, 3].map((i) {
-//                       return Builder(
-//                         builder: (BuildContext context) {
-//                           return FutureBuilder(
-//                             future: sendImageInBytes(
-//                                 imageUrl: selectedModel.mainImageURL),
-//                             //  initialData: InitialData,
-//                             builder: (BuildContext context,
-//                                 AsyncSnapshot snapshot) {
-//                               if (snapshot.hasData) {
-//                                 return Image.memory(snapshot.data);
-//                               } else {
-//                                 // return Text('a');
-//                                 return CachedNetworkImage(
-//                                   imageUrl: selectedModel.mainImageURL,
-//                                   imageBuilder: (context, imageProvider) =>
-//                                       Container(
-//                                     height: 150,
-//                                     decoration: BoxDecoration(
-//                                       color: Colors.red,
-//                                       image: DecorationImage(
-//                                           image: imageProvider,
-//                                           fit: BoxFit.cover,
-//                                           colorFilter: ColorFilter.mode(
-//                                               Colors.red,
-//                                               BlendMode.colorBurn)),
-//                                     ),
-//                                   ),
-//                                   placeholder: (context, url) =>
-//                                       CircularProgressIndicator(),
-//                                   errorWidget: (context, url, error) =>
-//                                       Icon(Icons.error),
-//                                 );
-//                               }
-//                             },
-//                           );
-//                         },
-//                       );
-//                     }).toList(),
-//                   ),
-
-//                   Text(
-//                     "${selectedModel.mainImageURL ?? ''}",
-//                     style: TextStyle(
-//                       fontFamily: 'Poppins',
-//                       fontSize: 18,
-//                       fontWeight: FontWeight.bold,
-//                       color: Color(0XFF5E5E5E),
-//                     ),
-//                   ),
-//                   Text(
-//                     "${selectedModel.collectedValue ?? ''}",
-//                     style: TextStyle(
-//                       fontFamily: 'Poppins',
-//                       fontSize: 14,
-//                       fontWeight: FontWeight.bold,
-//                       color: Color(0XFF5E5E5E),
-//                     ),
-//                   ),
-//                   // Text(
-//                   //   "${selectedModel.aDD2 ?? ''}",
-//                   //   style: TextStyle(
-//                   //     fontFamily: 'Poppins',
-//                   //     fontSize: 14,
-//                   //     fontWeight: FontWeight.bold,
-//                   //     color: Color(0XFF5E5E5E),
-//                   //   ),
-//                   // ),
-//                   Text(
-//                     "${selectedModel.endDate ?? ''}",
-//                     style: TextStyle(
-//                       fontFamily: 'Poppins',
-//                       fontSize: 14,
-//                       fontWeight: FontWeight.bold,
-//                       color: Color(0XFF5E5E5E),
-//                     ),
-//                   ),
-//                   Text(
-//                     "${selectedModel.startDate ?? ''}",
-//                     style: TextStyle(
-//                       fontFamily: 'Poppins',
-//                       fontSize: 14,
-//                       fontWeight: FontWeight.bold,
-//                       color: Color(0XFF5E5E5E),
-//                     ),
-//                   ),
-//                   Text(
-//                     "${selectedModel.title ?? ''}",
-//                     style: TextStyle(
-//                       fontFamily: 'Poppins',
-//                       fontSize: 14,
-//                       fontWeight: FontWeight.bold,
-//                       color: Color(0XFF5E5E5E),
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     ),
-//   );
